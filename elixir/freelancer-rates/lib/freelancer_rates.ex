@@ -1,17 +1,14 @@
 defmodule FreelancerRates do
-  def daily_rate(hourly_rate) do
-    # Please implement the daily_rate/1 function
-  end
+  @daily_working_hours 8
+  @monthly_billable_days 22
 
-  def apply_discount(before_discount, discount) do
-    # Please implement the apply_discount/2 function
-  end
+  def daily_rate(hourly_rate), do: @daily_working_hours * hourly_rate + 0.0
 
-  def monthly_rate(hourly_rate, discount) do
-    # Please implement the monthly_rate/2 function
-  end
+  def apply_discount(before_discount, discount), do: before_discount * (1.0 - discount / 100)
 
-  def days_in_budget(budget, hourly_rate, discount) do
-    # Please implement the days_in_budget/3 function
-  end
+  def monthly_rate(hourly_rate, discount),
+    do: ceil(@monthly_billable_days * apply_discount(daily_rate(hourly_rate), discount))
+
+  def days_in_budget(budget, hourly_rate, discount),
+    do: Float.floor(budget / apply_discount(daily_rate(hourly_rate), discount), 1) + 0.0
 end
