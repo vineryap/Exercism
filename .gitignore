@@ -25,6 +25,9 @@
 # Ignore exercism config and metadata
 **/*/.exercism
 
+# Ignore .DS_Store file
 **/*/.DS_Store
 
+# Ignore .DS_Store file
 .DS_Store
+
