@@ -9,9 +9,9 @@ defmodule Rules do
 
   @spec lose?(boolean, boolean) :: boolean
   def lose?(power_pellet_active?, touching_ghost?),
-    do: eat_ghost?(!power_pellet_active?, touching_ghost?)
+    do: eat_ghost?(not power_pellet_active?, touching_ghost?)
 
   @spec win?(boolean, boolean, boolean) :: boolean
   def win?(has_eaten_all_dots?, power_pellet_active?, touching_ghost?),
-    do: has_eaten_all_dots? and !lose?(power_pellet_active?, touching_ghost?)
+    do: has_eaten_all_dots? and not lose?(power_pellet_active?, touching_ghost?)
 end
