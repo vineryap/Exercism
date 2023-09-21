@@ -1,25 +1,19 @@
 defmodule LanguageList do
-  def new() do
-    # Please implement the new/0 function
-  end
+  @spec new() :: []
+  def new(), do: []
 
-  def add(list, language) do
-    # Please implement the add/2 function
-  end
+  @spec add([string], string) :: [string]
+  def add(list, language), do: [language | list]
 
-  def remove(list) do
-    # Please implement the remove/1 function
-  end
+  @spec remove([string]) :: [string]
+  def remove(list), do: tl(list)
 
-  def first(list) do
-    # Please implement the first/1 function
-  end
+  @spec first([string]) :: [string]
+  def first(list), do: hd(list)
 
-  def count(list) do
-    # Please implement the count/1 function
-  end
+  @spec count([string]) :: integer
+  def count(list), do: length(list)
 
-  def functional_list?(list) do
-    # Please implement the functional_list?/1 function
-  end
+  @spec functional_list?([string]) :: boolean
+  def functional_list?(list), do: "Elixir" in list
 end
