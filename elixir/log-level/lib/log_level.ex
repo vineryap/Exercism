@@ -13,7 +13,7 @@ defmodule LogLevel do
   def to_label(level, legacy?) do
     cond do
       # Get the label from only if the level is exists in the map and NOT came from a legacy app, OR if the level is from 1-4 regardless the app.
-      (Map.has_key?(@log_labels, level) and !legacy?) or (level >= 1 and level <= 4) ->
+      (Map.has_key?(@log_labels, level) and not legacy?) or (level >= 1 and level <= 4) ->
         Map.fetch!(@log_labels, level)
 
       # Other than the condition above will be labeled as "unknown".
